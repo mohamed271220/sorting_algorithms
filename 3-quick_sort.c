@@ -12,12 +12,13 @@
 
 void swap(int *array, size_t size, int *a, int *b)
 {
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-	print_array((const int *)array, size);
+if (*a != *b)
+{
+*a = *a + *b;
+*b = *a - *b;
+*a = *a - *b;
+print_array((const int *)array, size);
+}
 }
 
 /**
