@@ -20,7 +20,6 @@ void swap(int *array, size_t size, int *a, int *b)
 	print_array((const int *)array, size);
 }
 
-
 /**
 * partition - partitions the array
 * @array: array to partition
@@ -46,20 +45,6 @@ return (i);
 
 
 /**
-* quick_sort - sorts an array of integers in ascending order
-* using the Quick sort algorithm
-* @array: array to sort
-* @size: size of the array
-*/
-
-void quick_sort(int *array, size_t size)
-{
-	if (array == NULL || !size)
-		return;
-	quicksort(array, size, 0, size - 1);
-}
-
-/**
 * quicksort - sorts an array of integers in ascending order
 * using the Quick sort algorithm
 * @array: array to sort
@@ -78,3 +63,21 @@ quicksort(array, size, low, pi - 1);
 quicksort(array, size, pi + 1, high);
 }
 }
+
+
+
+
+/**
+* quick_sort - sorts an array of integers in ascending order
+* using the Quick sort algorithm
+* @array: array to sort
+* @size: size of the array
+*/
+
+void quick_sort(int *array, size_t size)
+{
+	if (array == NULL || !size)
+		return;
+	quicksort(array, size, 0, size - 1);
+}
+
