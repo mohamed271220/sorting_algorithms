@@ -31,17 +31,33 @@ print_array((const int *)array, size);
 */
 size_t partition(int *array, size_t size, int low, int high)
 {
-int i, j, pivot = array[high];
+	int pivot, i, j, temp;
 
-for (i = j = low; j < high; j++)
-{
-if (array[j] < pivot)
-{
-swap(array, size, &array[j], &array[i++]);
-}
-}
-swap(array, size, &array[i], &array[high]);
-return (i);
+	int mid = low + (high - low) / 2;
+
+	// Median of three for pivot selection
+	if (array[low] > array[mid])
+		swap(array, size, &array[low], &array[mid]);
+	if (array[low] > array[high])
+		swap(array, size, &array[low], &array[high]);
+	if (array[mid] > array[high])
+		swap(array, size, &array[mid], &array[high]);
+
+	swap(array, size, &array[mid], &array[high]);  // Swap median with high
+
+	pivot = array[high];
+	i = low - 1;
+
+	for (j = low; j <= high - 1; j++)
+	{
+		if (array[j] <= pivot)
+		{
+			i++;
+			swap(array, size, &array[i], &array[j]);
+		}
+	}
+	swap(array, size, &array[i + 1], &array[high]);
+	return (i + 1);
 }
 
 
