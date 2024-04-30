@@ -35,7 +35,6 @@ size_t partition(int *array, size_t size, int low, int high)
 
 	int mid = low + (high - low) / 2;
 
-	// Median of three for pivot selection
 	if (array[low] > array[mid])
 		swap(array, size, &array[low], &array[mid]);
 	if (array[low] > array[high])
@@ -43,7 +42,7 @@ size_t partition(int *array, size_t size, int low, int high)
 	if (array[mid] > array[high])
 		swap(array, size, &array[mid], &array[high]);
 
-	swap(array, size, &array[mid], &array[high]);  // Swap median with high
+	swap(array, size, &array[mid], &array[high]);
 
 	pivot = array[high];
 	i = low - 1;
