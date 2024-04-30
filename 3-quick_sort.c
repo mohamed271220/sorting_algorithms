@@ -17,7 +17,7 @@ void swap(int *array, size_t size, int *a, int *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
-	print_array(array, size);
+	print_array((const int *)array, size);
 }
 
 
@@ -59,17 +59,27 @@ size_t partition(int *array, size_t size, int low, int high)
 
 void quick_sort(int *array, size_t size)
 {
-	int low = 0;
-
-	int high = size - 1;
-
 	if (array == NULL || !size)
 		return;
+	quicksort(array, size, 0, size - 1);
+}
+
+/**
+* quicksort - sorts an array of integers in ascending order
+* using the Quick sort algorithm
+* @array: array to sort
+*  @size: size of the array
+* @low: low index
+* @high: high index
+*/
+
+void quicksort(int *array, size_t size, int low, int high)
+{
 	if (low < high)
 	{
 		size_t pi = partition(array, size, low, high);
 
-		quick_sort(array, pi);
-		quick_sort(array + pi + 1, size - pi - 1);
+		quicksort(array, size, low, pi - 1);
+		quicksort(array, size, pi + 1, high);
 	}
 }
