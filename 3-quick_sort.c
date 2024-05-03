@@ -31,7 +31,7 @@ print_array((const int *)array, size);
 */
 size_t partition(int *array, size_t size, int low, int high)
 {
-	int pivot, i, j, temp;
+	int pivot, i, j;
 
 	int mid = low + (high - low) / 2;
 
